@@ -1,7 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
-using Pierre.Models;
 
-namespace ToDoList.Controllers
+namespace PierreData.Controllers
 {
   public class HomeController : Controller
   {

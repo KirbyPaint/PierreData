@@ -1,5 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
-using Pierre.Models;
+using PierreData.Models;
 using System.Collections.Generic;
 
 namespace Pierre.Controllers
