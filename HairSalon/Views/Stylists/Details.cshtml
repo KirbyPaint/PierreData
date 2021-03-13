@@ -11,12 +11,20 @@
 
 <hr>
 
-<p>This Stylist's Clients are:</p>
-
-@foreach(Client client in ViewBag.clients)
+@if (ViewBag.clients.Count == 0)
 {
-	<li>@client.LastName, @client.FirstName</li>
+  <h3>NO CLIENTS</h3>
 }
+else
+{
+  <p>This Stylist's Clients are:</p>
+
+  @foreach(Client client in ViewBag.clients)
+  {
+    <li>@client.LastName, @client.FirstName</li>
+  }
+}
+
 
 <hr>
 <p>@Html.ActionLink("Edit Stylist Details", "Edit", new { id = ViewBag.thisStylist.StylistId })</p>
