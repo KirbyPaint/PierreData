@@ -6,23 +6,23 @@
 
 <h1>Edit</h1>
 
-<p>Edit this client: @Html.DisplayFor(model => model.FirstName) @Html.DisplayFor(model => model.LastName)</p>
+<p>Edit this client's details: @Html.DisplayFor(model => model.FirstName) @Html.DisplayFor(model => model.LastName)</p>
 
 @using (Html.BeginForm())
 {
   @Html.HiddenFor(model => model.ClientId)
 
-  @Html.LabelFor(model => model.FirstName)
-  @Html.EditorFor(model => model.FirstName)<br>
+  <p>Client's First Name:
+  @Html.EditorFor(model => model.FirstName)</p>
 
-  @Html.LabelFor(model => model.LastName)
-  @Html.EditorFor(model => model.LastName)<br>
+  <p>Client's Last Name:
+  @Html.EditorFor(model => model.LastName)</p>
 
-  @Html.LabelFor(model => model.ContactInfo)
-  @Html.EditorFor(model => model.ContactInfo)<br>
+  <p>Client's Contact Info:
+  @Html.EditorFor(model => model.ContactInfo)</p>
 
-  @Html.LabelFor(model => model.Stylist)
-  @Html.DropDownList("StylistId")<br>
+  <p>Stylist: 
+  @Html.DropDownList("StylistId")</p>
 
   <input type="submit" value="Save">
 }
