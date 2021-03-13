@@ -9,6 +9,6 @@
 <p>Contact to delete: @Html.DisplayFor(model => model.FirstName) @Html.DisplayFor(model => model.LastName)</p>
 @using (Html.BeginForm())
 {
-  <input type="submit" value="Delete" />
+  <input type="submit" value="Delete" class="btn btn-danger">
 }
 @Html.ActionLink("Back to List", "Index")
