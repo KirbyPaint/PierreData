@@ -1,13 +1,16 @@
 #custom {
-  font-family: 'Courier New', Courier, monospace;
-  color: red;
+  font-family: 'Lobster', cursive;
 }
 
 #custom a:link {
-  color: red;
+  color: rgb(255, 102, 128);
 }
 #custom a:visited {
   color: purple;
+}
+
+h1 {
+  font-family: 'Lobster', cursive;
 }
 
 div#footer {
