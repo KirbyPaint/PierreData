@@ -7,15 +7,20 @@
 
 <h1>Clients</h1>
 
-@if (@Model.Count == 0)
+@if (((IEnumerable<dynamic>)ViewBag.Stylists).Count() == 0)
 {
-  <h3>No clients have been added yet!</h3>
+  <p>You need to add a Stylist before you can add clients to the database.</p>
 }
-
-@foreach (Client client in Model)
+else
 {
-  <li>@Html.ActionLink($"{client.FirstName}", "Details", new { id = client.ClientId }) | @client.Stylist.FirstName</li>
-}
+  @if (@Model.Count == 0)
+  {
+    <h3>No clients have been added yet!</h3>
+  }
 
-<p>@Html.ActionLink("Add new client to database", "Create")</p>
-<p>@Html.ActionLink("Home", "Index", "Home")</p>
+  @foreach (Client client in Model)
+  {
+    <li>@Html.ActionLink($"{client.FirstName}", "Details", new { id = client.ClientId }) | @client.Stylist.FirstName</li>
+  }
+  <p>@Html.ActionLink("Add new client to database", "Create")</p>
+}
