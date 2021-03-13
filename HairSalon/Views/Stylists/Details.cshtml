@@ -1,0 +1,24 @@
+@{
+  Layout = "_Layout";
+}
+
+@using HairSalon.Models
+@model HairSalon.Models.Stylist
+
+<h2>Stylist Details</h2>
+<hr />
+<h3>@ViewBag.thisStylist.FirstName</h3>
+
+<hr>
+
+<p>This Stylist's Clients are:</p>
+
+@foreach(Client client in ViewBag.clients)
+{
+	<li>@client.LastName, @client.FirstName</li>
+}
+
+<hr>
+<p>@Html.ActionLink("Edit Stylist Details", "Edit", new { id = ViewBag.thisStylist.StylistId })</p>
+<p>@Html.ActionLink("Delete Stylist", "Delete", new { id = ViewBag.thisStylist.StylistId })</p>
+<p>@Html.ActionLink("Back to list", "Index")</p>
