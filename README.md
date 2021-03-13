@@ -13,7 +13,7 @@ _The purpose of this web application is to demonstrate knowledge of how MVC conc
 ### Cloning with Git:
 * Open Git Bash, or your preferred terminal
 * Navigate to your directory for Git projects (not within an existing project)
-* Type the following: git clone https://github.com/KirbyPaint/HairSalon.Solution.git
+* Type the following: `git clone https://github.com/KirbyPaint/HairSalon.Solution.git`
 
 This program was built with and requires .NET version 5.0.102. You may install the 64-bit version for Windows [using this link](https://dotnet.microsoft.com/download/dotnet/thank-you/sdk-5.0.102-windows-x64-installer)  
 
@@ -21,7 +21,7 @@ Once the installation of .NET 5 is complete, you may check that the proper versi
 
 `dotnet --version`  
 
-Then, open your Git Bash terminal and type:
+Then, open your Git Bash terminal and navigate to:
 
 `cd <filepath the files are installed at>\HairSalon.Solution\HairSalon`
 
@@ -46,7 +46,7 @@ First, you will need to navigate to the `\HairSalon.Solution\HairSalon` director
 }
 ```
 
-You will need to make at least TWO changes to this file:  
+You will need to make at least TWO changes to the appsettings.json file:  
 Where the text says `database=[DATABASE_NAME]`, enter your own database's name, and remove the brackets. If your database was named `my_database` this code will look like `database=my_database`  
 Where the text says `pwd=[YOUR PASSWORD]`, enter your own secure password, and remove the brackets. If your password is `SafePassword123` this code will look like `pwd=SafePassword123`  
 This ensures that the program will be able to read and write to your own local database.
@@ -87,7 +87,11 @@ CREATE TABLE `stylists` (
 
 ### After everything is set up
 
-Once you have properly navigated to the file directory, type:
+Once you have properly navigated to the project directory (`<your directory>\HairSalon.Solution\HairSalon`), your appsettings.json file has been created, and your local server has been set up, type:
+
+`dotnet restore`
+
+followed by
 
 `dotnet run`
 
@@ -103,7 +107,16 @@ Once you see this in the terminal, you will be able to open the web page as a li
 
 ## How To Use The Program
 
+The program will open up on a landing page, directing the user to either enter a new Stylist's information or a new Client's information. The user may navigate to either link and view data (if data exists) but if there are no current Stylists, the program will display a message in the Add Client area of the site.  
+This is because a Client MUST be assigned a Stylist.  
 
+Clicking `View Stylist List` will navigate to the `/Stylists` directory, where the user can view all Stylists. From this page, the user may add a new Stylist, or click on any existing Stylist's name to view their unique details.  
+Once within a Stylist's details page, the user can view all this Stylist's Clients, edit a Stylist's info, delete the Stylist, or return to the Stylists' home page.
+
+Clicking `View Client List` will navigate to the `/Clients` directory, where the user can view all Clients. This page will display the Clients, as well as their corresponding Stylist. It also contains a link to add a new Client, so long as there is already one Stylist in the `stylists` table. Clicking on a Client's name will display their details, including first name, last name, and their contact info. Each of these fields accept text input. The Contact Info field is a catch-all field, which can take the Client's best phone number, email address, text number, etc.  
+From the Details page, the user can edit a Client, delete the current Client, or return back to the Clients' home page.
+
+All pages will contain a link back to the Home page.
 
 ## Known Bugs/Issues
 
