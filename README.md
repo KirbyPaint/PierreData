@@ -23,42 +23,39 @@ Once the installation of .NET 5 is complete, you may check that the proper versi
 
 Then, open your Git Bash terminal and navigate to:
 
-`cd <filepath the files are installed at>\HairSalon.Solution\HairSalon`
+`C:<filepath the files are installed at>\HairSalon.Solution`
 
 where "filepath the files are installed at" will be the location you saved your copy of the project at, or alternatively:  
 
-You may navigate to the folder in the project labeled "HairSalon", within the HairSalon.Solution folder.  
-Hold the shift button on your keyboard and right-click inside the File Explorer window, and in the right-click menu, choose "Open Powershell Window Here" or "Open Git Bash Here"  
+You may navigate to the folder in the project labeled "HairSalon.Solution".  
+Right-click inside the File Explorer window, and in the right-click menu, choose "Open Git Bash Here," or Shift+Right-click and choose "Open Powershell Window Here."  
 This will open a Powershell/Git Bash window that is already inside the proper directory.
 
 [Click here for tips on navigating the terminal](https://docs.microsoft.com/en-us/powershell/scripting/samples/managing-current-location?view=powershell-7.1)
-
-### Additional File Setup
-
-This project relies on databases, and as such, requires additional setup.  
-First, you will need to navigate to the `\HairSalon.Solution\HairSalon` directory. Create a file named `appsettings.json` and paste the following code into the new file:
-
-```
-{
-  "ConnectionStrings": {
-    "DefaultConnection": "Server=localhost;Port=3306;database=[DATABASE_NAME];uid=root;pwd=[YOUR PASSWORD];"
-  }
-}
-```
-
-You will need to make at least TWO changes to the appsettings.json file:  
-Where the text says `database=[DATABASE_NAME]`, enter your own database's name, and remove the brackets. If your database was named `my_database` this code will look like `database=my_database`  
-Where the text says `pwd=[YOUR PASSWORD]`, enter your own secure password, and remove the brackets. If your password is `SafePassword123` this code will look like `pwd=SafePassword123`  
-This ensures that the program will be able to read and write to your own local database.
 
 ### Setting Up Local Database
 
 This project's databases were made with the assistance of [MySQL Workbench 8.0.19](https://downloads.mysql.com/archives/workbench/).  
 Instructions on installing MySQL [can be found here](https://www.learnhowtoprogram.com/c-and-net/getting-started-with-c/installing-and-configuring-mysql).
 
-Below is the basic structure dump for the table. You may import the entire table structure file as well through the MySQL workbench by importing the file in this project's root directory named "ashley_porter.sql". Open MySQL Workbench and navigate to the Administration tab. From there, click Data Import/Restore, and browse to the file named "ashley_porter.sql". The program should be able to handle importing the file.
+Below is the basic structure dump for the table. You may import the entire table structure file as well through the MySQL workbench by importing the file in this project's root directory named "ashley_porter.sql". Open MySQL Workbench and navigate to the Administration tab. From there, click Data Import/Restore, and browse to the file named "ashley_porter.sql". Make sure when importing this file that you've chosen a schema to add the tables to, or the installation will fail. If an error happens anyway, you will need to create a database on your local server, with the tables `clients` and `stylists`.  
+
+The `clients` table will contain the following columns and their types:  
+`ClientId` type `INT`, `NOT NULL`, `AUTO_INCREMENT`, `PRIMARY KEY`  
+`FirstName` type `VARCHAR (255)`  
+`LastName` type `VARCHAR (255)`  
+`ContactInfo` type `VARCHAR (255)`  
+`StylistId` type `INT`, `NOT NULL`  
+
+The `stylists` table will contain the following columns and their types:  
+`StylistId` type `INT`, `NOT NULL`, `AUTO_INCREMENT`, `PRIMARY KEY`  
+`FirstName` type `VARCHAR (255)`  
+`LastName` type `VARCHAR (255)`  
+`FirstLast` type `VARCHAR (255)`  
 
 ```
+Base Table Structure Code:
+
 --
 -- Table structure for table `clients`
 --
@@ -86,6 +83,23 @@ CREATE TABLE `stylists` (
   PRIMARY KEY (`StylistId`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 ```
+
+### Additional Config File Setup
+
+First, you will need to ensure you navigate into the `\HairSalon.Solution\HairSalon` directory. Create a file named `appsettings.json` and paste the following code into the newly created `appsettings.json` file:
+
+```
+{
+  "ConnectionStrings": {
+    "DefaultConnection": "Server=localhost;Port=3306;database=[DATABASE_NAME];uid=root;pwd=[YOUR PASSWORD];"
+  }
+}
+```
+
+You will then need to make at least TWO changes to the appsettings.json file:  
+Where the text says `database=[DATABASE_NAME]`, enter your own database's name, and remove the brackets. If your database was named `my_database` this code will look like `database=my_database`  
+Where the text says `pwd=[YOUR PASSWORD]`, enter your own secure password, and remove the brackets. If your password is `SafePassword123` this code will look like `pwd=SafePassword123`  
+This ensures that the program will be able to read and write to your own local database.
 
 ### After everything is set up
 
