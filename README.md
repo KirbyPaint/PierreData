@@ -54,8 +54,9 @@ This ensures that the program will be able to read and write to your own local d
 ### Setting Up Local Database
 
 This project's databases were made with the assistance of [MySQL Workbench 8.0.19](https://downloads.mysql.com/archives/workbench/).  
+Instructions on installing MySQL [can be found here](https://www.learnhowtoprogram.com/c-and-net/getting-started-with-c/installing-and-configuring-mysql).
 
-Below is the basic structure dump for the table. You may import the entire table structure file as well through the MySQL workbench by importing the file in this project's root directory named "ashley_porter.sql". Open MySQL Workbench and navigate to the Administration tab. From there, click Data Import/Restore, and 
+Below is the basic structure dump for the table. You may import the entire table structure file as well through the MySQL workbench by importing the file in this project's root directory named "ashley_porter.sql". Open MySQL Workbench and navigate to the Administration tab. From there, click Data Import/Restore, and browse to the file named "ashley_porter.sql". The program should be able to handle importing the file.
 
 ```
 --
